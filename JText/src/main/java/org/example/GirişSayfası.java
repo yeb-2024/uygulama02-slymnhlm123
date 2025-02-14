@@ -2,13 +2,17 @@ package org.example;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GirişSayfası
+public class GirişSayfası implements ActionListener
 {
     JFrame frame = new JFrame();
     JTextField kullanıcı = new JTextField();
 
     JTextField sifre = new JTextField();
+
+    JButton button = new JButton("Gönder");
 
 
     public  GirişSayfası()
@@ -27,6 +31,12 @@ public class GirişSayfası
         JLabel ortalabel = new JLabel("Şifre");
         sifre.setPreferredSize(new Dimension(200,40));
 
+        JPanel altpanel = new JPanel();
+        altpanel.setLayout(new FlowLayout());
+        altpanel.add(button);
+
+        button.addActionListener(this);
+
         panelust.add(üstlabel);
         panelust.add(kullanıcı);
 
@@ -40,6 +50,12 @@ public class GirişSayfası
 
         frame.add(panelust);
         frame.add(panelorta);
+        frame.add(altpanel);
         frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }
