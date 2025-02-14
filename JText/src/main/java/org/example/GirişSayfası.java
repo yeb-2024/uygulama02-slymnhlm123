@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 
 public class GirişSayfası implements ActionListener
 {
+    String şifre = "1888";
+    String kullanıcıadı ="süleyman";
     JFrame frame = new JFrame();
     JTextField kullanıcı = new JTextField();
 
@@ -55,7 +57,21 @@ public class GirişSayfası implements ActionListener
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e)
+    {
+        if (e.getSource() == button)
+        {
+            if (şifre.equals(sifre.getText()) && kullanıcıadı.equals(kullanıcı.getText()))
+            {
+                JOptionPane.showMessageDialog(null,"Giriş Başarılı","Mesaj",JOptionPane.INFORMATION_MESSAGE);
+                sifre.setEditable(false);
+                kullanıcı.setEditable(false);
+
+            }
+            else JOptionPane.showMessageDialog(null,"Giriş Başarısız","Mesaj",JOptionPane.WARNING_MESSAGE);
+
+
+        }
 
     }
 }
